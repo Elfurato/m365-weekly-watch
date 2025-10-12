@@ -1,14 +1,103 @@
-<h2 style="color:#0078d4;margin:0 0 16px;font-size:20px">Veille Microsoft ? Semaine du 12 octobre 2025</h2>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Veille Microsoft ? Semaine du 12 October 2025</title>
+<style>
+  body{font-family:'Segoe UI',Arial,sans-serif;margin:0;padding:24px;color:#222;line-height:1.6;background:#fafafa}
+  .container{max-width:800px;margin:0 auto;background:white;padding:32px;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,0.1)}
+  h1{color:#0078d4;margin:0 0 24px;font-size:28px;text-align:center;border-bottom:3px solid #0078d4;padding-bottom:16px}
+  h2{color:#0078d4;margin:32px 0 16px;font-size:22px;border-bottom:2px solid #e1e1e1;padding-bottom:8px}
+  h3{color:#444;margin:24px 0 12px;font-size:18px}
+  h4{color:#666;margin:16px 0 8px;font-size:16px;font-weight:600}
+  .summary{background:#f0f8ff;padding:20px;border-left:4px solid #0078d4;margin:24px 0;border-radius:0 6px 6px 0}
+  .badge{display:inline-block;font-size:11px;padding:3px 8px;border-radius:12px;color:white;margin-left:8px;font-weight:600}
+  .critique{background:#d32f2f}.important{background:#ff9800}.info{background:#4caf50}.nouveau{background:#9c27b0}
+  a{color:#0078d4;text-decoration:none}a:hover{text-decoration:underline;color:#106ebe}
+  ul{margin:0 0 16px;padding-left:24px}li{margin-bottom:8px}
+  .section{margin:24px 0;padding:16px;background:#f9f9f9;border-radius:6px}
+  .footer{margin-top:40px;text-align:center;font-size:12px;color:#888;border-top:1px solid #ddd;padding-top:16px}
+  .icon{margin-right:8px;font-size:16px}
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>? Veille Microsoft ? Semaine du 12 October 2025</h1>
+  
+  <div class="summary">
+    <h3 style="margin-top:0">? R?sum? ex?cutif</h3>
+    <ul>
+      <li><strong>Intune 2025</strong> : D?ploiement des fonctionnalit?s IA pour g?n?ration automatique de politiques et optimisation Cloud PC</li>
+      <li><strong>Windows 10</strong> : Fin de support officielle le 14 octobre 2025, transition vers statut "version autoris?e" dans Intune</li>
+      <li><strong>Teams</strong> : Nouvelles capacit?s collaboratives avec notes partag?es et s?lection p?riph?riques sur iPad</li>
+      <li><strong>S?curit?</strong> : Migration r?seau Intune vers Azure Front Door planifi?e pour d?cembre 2025</li>
+      <li><strong>Mobile</strong> : Fin de support Company Portal Android versions < 5.0.5421.0</li>
+    </ul>
+  </div>
 
-<h3 style="color:#444;margin:16px 0 8px;font-size:16px">R?sum? ex?cutif</h3>
-<ul style="margin:0 0 16px;padding-left:20px;line-height:1.5">
-<li><strong>Intune 2025</strong> : Nouvelles fonctionnalit?s IA pour la g?n?ration automatique de politiques</li>
-<li><strong>Windows 10</strong> : Fin de support le 14 octobre 2025, devient une version "autoris?e" dans Intune</li>
-<li><strong>PowerShell</strong> : Support des scripts PowerShell pour l'installation d'applications Win32</li>
-<li><strong>R?seau Intune</strong> : Migration vers Azure Front Door pr?vue en d?cembre 2025</li>
-</ul>
+  <h2>?? Microsoft Intune</h2>
+  
+  <div class="section">
+    <h4><span class="icon">?</span>Nouveaut?s</h4>
+    <ul>
+      <li><a href="https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/whats-new" target="_blank">Intelligence artificielle int?gr?e pour cr?ation de politiques</a><span class="badge nouveau">Nouveau</span></li>
+      <li><a href="https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/whats-new" target="_blank">Support scripts PowerShell pour applications Win32</a><span class="badge info">Info</span></li>
+      <li><a href="https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/whats-new" target="_blank">Copilot int?gr? avec analyse Cloud PC</a><span class="badge important">Important</span></li>
+      <li><a href="https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/in-development" target="_blank">Int?gration Intel vPro Fleet Services</a><span class="badge info">Info</span></li>
+    </ul>
+  </div>
 
-<h3 style="color:#0078d4;margin:20px 0 8px;font-size:18px;border-bottom:1px solid #e0e0e0;padding-bottom:4px">Intune</h3>
-<ul style="margin:0 0 12px;padding-left:20px">
-<li><a href="https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/whats-new" target="_blank" style="color:#0078d4">Fin de support Windows 10 (14 octobre 2025)</a> <span style="background:#c23934;color:white;padding:2px 6px;font-size:11px;border-radius:3px">Critique</span></li>
-</ul>
+  <div class="section">
+    <h4><span class="icon">?</span>Probl?mes critiques</h4>
+    <ul>
+      <li><a href="https://www.reddit.com/r/sysadmin/comments/1o2vhwv/microsoft_intune_network_change_december_2025/" target="_blank">Migration r?seau Azure Front Door (d?cembre 2025)</a><span class="badge critique">Critique</span><br>
+      <small><strong>Action requise :</strong> Mettre ? jour r?gles pare-feu avec nouvelles adresses IP Azure Front Door avant d?cembre 2025</small></li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h4><span class="icon">??</span>Changements importants</h4>
+    <ul>
+      <li><a href="https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/whats-new" target="_blank">Windows 10 : fin de support mainstream (14 octobre 2025)</a><span class="badge critique">Critique</span></li>
+      <li><a href="https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/whats-new" target="_blank">Company Portal Android < 5.0.5421.0 non support?</a><span class="badge important">Important</span></li>
+      <li><a href="https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/whats-new" target="_blank">Nouveau processus d'inscription appareils avec DEM</a><span class="badge info">Info</span></li>
+    </ul>
+  </div>
+
+  <h2>? Microsoft Teams</h2>
+  
+  <div class="section">
+    <h4><span class="icon">?</span>Nouveaut?s</h4>
+    <ul>
+      <li><a href="https://www.shu.edu/technology/news/microsoft-updates-october-2025.html" target="_blank">S?lection p?riph?riques audio/vid?o sur iPad</a><span class="badge info">Info</span></li>
+      <li><a href="https://www.shu.edu/technology/news/microsoft-updates-october-2025.html" target="_blank">Notes collaboratives dans conversations</a><span class="badge nouveau">Nouveau</span></li>
+      <li><a href="https://www.shu.edu/technology/news/microsoft-updates-october-2025.html" target="_blank">Am?lioration transfert d'appels Teams Phone</a><span class="badge info">Info</span></li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h4><span class="icon">??</span>Changements</h4>
+    <ul>
+      <li><a href="https://www.shu.edu/technology/news/microsoft-updates-october-2025.html" target="_blank">Canaux priv?s : transition vers bo?tes aux lettres d?di?es</a><span class="badge important">Important</span></li>
+    </ul>
+  </div>
+
+  <h2>? S?curit? & Conformit?</h2>
+  
+  <div class="section">
+    <h4><span class="icon">??</span>? surveiller</h4>
+    <ul>
+      <li>Mise ? jour obligatoire des r?gles de pare-feu pour migration Azure Front Door</li>
+      <li>Planification migration Windows 10 vers Windows 11 avant fin support</li>
+      <li>Audit versions Company Portal Android sur parc mobile</li>
+    </ul>
+  </div>
+
+  <div class="footer">
+    <p>? Rapport g?n?r? automatiquement par Perplexity AI<br>
+    ? Prochaine mise ? jour : vendredi prochain</p>
+  </div>
+</div>
+</body>
+</html>
