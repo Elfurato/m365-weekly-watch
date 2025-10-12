@@ -5,103 +5,220 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Veille Microsoft - Semaine du 12 October 2025</title>
     <style>
-        body {
-            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
-            line-height: 1.6;
+        * {
             margin: 0;
-            padding: 20px;
-            background-color: #f5f5f5;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
             color: #333;
+            background-color: #f8f9fa;
         }
         
         .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            overflow: hidden;
+            display: flex;
+            min-height: 100vh;
+        }
+        
+        .sidebar {
+            width: 280px;
+            background: linear-gradient(180deg, #0078d4 0%, #106ebe 100%);
+            color: white;
+            padding: 20px;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+        }
+        
+        .sidebar h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 300;
+            text-align: center;
+        }
+        
+        .sidebar .date {
+            text-align: center;
+            opacity: 0.9;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        
+        .sidebar-nav {
+            list-style: none;
+        }
+        
+        .sidebar-nav li {
+            margin-bottom: 8px;
+        }
+        
+        .sidebar-nav a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+        
+        .sidebar-nav a:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateX(5px);
+        }
+        
+        .main-content {
+            flex: 1;
+            margin-left: 280px;
+            padding: 30px;
         }
         
         .header {
-            background: linear-gradient(135deg, #0078d4, #1890ff);
-            color: white;
+            background: white;
             padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
             text-align: center;
         }
         
         .header h1 {
-            margin: 0 0 15px 0;
-            font-size: 28px;
-            font-weight: 300;
-            letter-spacing: -0.5px;
-        }
-        
-        .content {
-            padding: 30px;
-        }
-        
-        h2 {
             color: #0078d4;
-            border-bottom: 2px solid #e1e5e9;
-            padding-bottom: 10px;
-            margin: 30px 0 20px 0;
-            font-size: 24px;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        
+        .section {
+            background: white;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .section-header {
+            background: linear-gradient(135deg, #0078d4, #106ebe);
+            color: white;
+            padding: 20px 30px;
+            font-size: 20px;
             font-weight: 600;
         }
         
-        h3 {
+        .section-content {
+            padding: 30px;
+        }
+        
+        .subsection {
+            margin-bottom: 25px;
+        }
+        
+        .subsection h4 {
             color: #333;
-            margin: 25px 0 15px 0;
-            font-size: 20px;
-            font-weight: 500;
-        }
-        
-        h4 {
-            color: #555;
-            margin: 20px 0 10px 0;
             font-size: 18px;
-            font-weight: 500;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e9ecef;
+            display: flex;
+            align-items: center;
         }
         
-        .summary {
-            background: linear-gradient(135deg, #e3f2fd, #f0f8ff);
-            border-left: 4px solid #0078d4;
-            padding: 25px;
-            margin: 25px 0;
-            border-radius: 0 8px 8px 0;
+        .subsection ul {
+            list-style: none;
+            padding-left: 0;
         }
         
-        .summary h3 {
-            margin-top: 0;
-            color: #0078d4;
-        }
-        
-        ul {
-            margin: 15px 0;
-            padding-left: 25px;
-        }
-        
-        li {
-            margin: 8px 0;
-            line-height: 1.5;
+        .subsection li {
+            margin-bottom: 15px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #dee2e6;
         }
         
         .badge {
             display: inline-block;
             padding: 4px 12px;
             border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
+            font-size: 11px;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             margin-left: 10px;
             color: white;
         }
         
-        .badge.critique { background: #d32f2f; }
-        .badge.important { background: #ff9800; }
-        .badge.info { background: #4caf50; }
+        .badge.critique {
+            background: linear-gradient(135deg, #dc3545, #c82333);
+        }
+        
+        .badge.important {
+            background: linear-gradient(135deg, #fd7e14, #e55a00);
+        }
+        
+        .badge.info {
+            background: linear-gradient(135deg, #28a745, #1e7e34);
+        }
+        
+        .summary {
+            background: linear-gradient(135deg, #e7f3ff, #cce7ff);
+            border: 2px solid #0078d4;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+        
+        .summary h3 {
+            color: #0078d4;
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+        
+        .critical-points, .main-features {
+            margin-top: 20px;
+        }
+        
+        .critical-points h4, .main-features h4 {
+            color: #333;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        
+        .actions {
+            background: linear-gradient(135deg, #fff8e1, #ffecb3);
+            border: 2px solid #ffa726;
+            padding: 30px;
+            border-radius: 12px;
+            margin-top: 30px;
+        }
+        
+        .actions h3 {
+            color: #e65100;
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+        
+        .action-category {
+            margin-bottom: 20px;
+        }
+        
+        .action-category h4 {
+            color: #bf360c;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        
+        .action-category ul {
+            list-style: disc;
+            padding-left: 20px;
+        }
+        
+        .action-category li {
+            margin-bottom: 8px;
+        }
         
         a {
             color: #0078d4;
@@ -114,283 +231,406 @@
             border-bottom-color: #0078d4;
         }
         
-        .section {
-            margin: 25px 0;
-            padding: 20px;
-            background: #f8f9fa;
-            border-radius: 8px;
-            border: 1px solid #e9ecef;
-        }
-        
-        .section h4 {
-            margin-top: 0;
-            display: flex;
-            align-items: center;
-        }
-        
-        .actions {
-            background: linear-gradient(135deg, #fff3e0, #ffeaa7);
-            border-left: 4px solid #ff9800;
-            padding: 25px;
-            margin: 30px 0;
-            border-radius: 0 8px 8px 0;
-        }
-        
-        .footer {
-            background: #f8f9fa;
-            padding: 20px 30px;
-            text-align: center;
-            color: #6c757d;
-            font-size: 14px;
-            border-top: 1px solid #e9ecef;
+        .icon {
+            margin-right: 8px;
+            font-size: 16px;
         }
         
         small {
             display: block;
-            margin-top: 5px;
-            color: #666;
+            margin-top: 8px;
+            color: #6c757d;
             font-style: italic;
+            line-height: 1.4;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #6c757d;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin-top: 30px;
         }
         
         @media (max-width: 768px) {
-            body { padding: 10px; }
-            .content { padding: 20px; }
-            .header { padding: 20px; }
-            .header h1 { font-size: 24px; }
+            .sidebar {
+                transform: translateX(-100%);
+            }
+            .main-content {
+                margin-left: 0;
+                padding: 15px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
+        <nav class="sidebar">
             <h1>? Veille Microsoft</h1>
-            <p>Semaine du 12 October 2025</p>
-        </div>
+            <div class="date">Semaine du 12 October 2025</div>
+            
+            <ul class="sidebar-nav">
+                <li><a href="#summary">? R?sum? Ex?cutif</a></li>
+                <li><a href="#intune">?? Microsoft Intune</a></li>
+                <li><a href="#teams">? Microsoft Teams</a></li>
+                <li><a href="#entra">? Microsoft Entra ID</a></li>
+                <li><a href="#exchange">? Microsoft Exchange</a></li>
+                <li><a href="#defender">?? Microsoft Defender</a></li>
+                <li><a href="#sharepoint">? Microsoft SharePoint</a></li>
+                <li><a href="#onedrive">?? Microsoft OneDrive</a></li>
+                <li><a href="#purview">? Microsoft Purview</a></li>
+                <li><a href="#actions">? Actions Recommand?es</a></li>
+            </ul>
+        </nav>
         
-        <div class="content">
-            <div class="summary">
+        <main class="main-content">
+            <div class="header">
+                <h1>Veille Microsoft</h1>
+                <p>Rapport hebdomadaire du 12 October 2025</p>
+            </div>
+            
+            <section id="summary" class="summary">
                 <h3>? R?sum? Ex?cutif</h3>
                 <p>Cette semaine marque des changements critiques dans l'?cosyst?me Microsoft avec plusieurs fins de support importantes et de nouvelles fonctionnalit?s IA. Les administrateurs doivent porter une attention particuli?re aux ?ch?ances d'octobre 2025.</p>
                 
-                <h4>Points Critiques de la Semaine</h4>
-                <ul>
-                    <li><strong>Fins de Support Octobre 2025</strong><span class="badge critique">Critique</span><br>Windows 10 et Exchange Server 2016/2019 atteignent leur fin de support le 14 octobre 2025. Actions imm?diates requises.</li>
-                    <li><strong>MFA Obligatoire Azure - Phase 2</strong><span class="badge critique">Critique</span><br>Application progressive de l'authentification multifacteur pour Azure CLI, PowerShell et outils IaC ? partir du 1er octobre.</li>
-                    <li><strong>Probl?mes d'Espace Disque Intune</strong><span class="badge critique">Critique</span><br>Journalisation excessive de l'application Intune Store causant des probl?mes d'espace disque sur les appareils Windows.</li>
-                </ul>
+                <div class="critical-points">
+                    <h4>Points Critiques de la Semaine</h4>
+                    <ul>
+                        <li><strong>Fins de Support Octobre 2025</strong><span class="badge critique">Critique</span><br>Windows 10 et Exchange Server 2016/2019 atteignent leur fin de support le 14 octobre 2025. Actions imm?diates requises.</li>
+                        <li><strong>MFA Obligatoire Azure - Phase 2</strong><span class="badge critique">Critique</span><br>Application progressive de l'authentification multifacteur pour Azure CLI, PowerShell et outils IaC ? partir du 1er octobre.</li>
+                        <li><strong>Probl?mes d'Espace Disque Intune</strong><span class="badge critique">Critique</span><br>Journalisation excessive de l'application Intune Store causant des probl?mes d'espace disque sur les appareils Windows.</li>
+                    </ul>
+                </div>
                 
-                <h4>Principales Nouveaut?s</h4>
-                <ul>
-                    <li><strong>Intelligence Artificielle Int?gr?e</strong><span class="badge important">Important</span><br>D?ploiement de Copilot dans Intune, Teams et nouveaux agents IA pour automatiser les t?ches administratives.</li>
-                    <li><strong>Protection Temps R?el Defender</strong><span class="badge important">Important</span><br>Nouvelle protection en temps r?el pour les agents IA contre les attaques d'injection de prompt.</li>
-                    <li><strong>Auto-archivage Exchange Online</strong><span class="badge info">Info</span><br>Activation par d?faut de l'auto-archivage bas? sur des seuils pour ?viter les probl?mes de flux de messagerie.</li>
-                </ul>
-            </div>
-
-            <h2>?? Microsoft Intune</h2>
+                <div class="main-features">
+                    <h4>Principales Nouveaut?s</h4>
+                    <ul>
+                        <li><strong>Intelligence Artificielle Int?gr?e</strong><span class="badge important">Important</span><br>D?ploiement de Copilot dans Intune, Teams et nouveaux agents IA pour automatiser les t?ches administratives.</li>
+                        <li><strong>Protection Temps R?el Defender</strong><span class="badge important">Important</span><br>Nouvelle protection en temps r?el pour les agents IA contre les attaques d'injection de prompt.</li>
+                        <li><strong>Auto-archivage Exchange Online</strong><span class="badge info">Info</span><br>Activation par d?faut de l'auto-archivage bas? sur des seuils pour ?viter les probl?mes de flux de messagerie.</li>
+                    </ul>
+                </div>
+            </section>
             
-            <div class="section">
-                <h4>? Nouveaut?s</h4>
-                <ul>
-                    <li><strong>Microsoft Intune 2025 - Nouvelles fonctionnalit?s IA</strong><span class="badge important">Important</span><br>
-                    <small>Intune 2025 apporte des am?liorations dans 5 domaines cl?s : automation, intelligence, int?gration, s?curit? et exp?rience utilisateur avec des suggestions de politiques bas?es sur l'IA</small></li>
+            <section id="intune" class="section">
+                <div class="section-header">?? Microsoft Intune</div>
+                <div class="section-content">
+                    <div class="subsection">
+                        <h4><span class="icon">?</span>Nouveaut?s</h4>
+                        <ul>
+                            <li><strong>Microsoft Intune 2025 - Nouvelles fonctionnalit?s IA</strong><span class="badge important">Important</span><br>
+                            <small>Intune 2025 apporte des am?liorations dans 5 domaines cl?s : automation, intelligence, int?gration, s?curit? et exp?rience utilisateur avec des suggestions de politiques bas?es sur l'IA</small></li>
+                            
+                            <li><strong>Int?gration Intel vPro Fleet Services</strong><span class="badge important">Important</span><br>
+                            <small>Intune int?gre maintenant Intel vPro Fleet Services pour la gestion ? distance au niveau mat?riel</small></li>
+                            
+                            <li><strong>Nouveau Copilot dans Intune</strong><span class="badge important">Important</span><br>
+                            <small>Microsoft Copilot disponible dans le centre d'administration Intune avec acc?s facilit? au chat et conversations contextuelles</small></li>
+                            
+                            <li><strong>Support PowerShell pour Win32 apps</strong><span class="badge info">Info</span><br>
+                            <small>Possibilit? d'uploader un script PowerShell pour installer les applications Enterprise App Catalog comme alternative ? la ligne de commande</small></li>
+                        </ul>
+                    </div>
                     
-                    <li><strong>Int?gration Intel vPro Fleet Services</strong><span class="badge important">Important</span><br>
-                    <small>Intune int?gre maintenant Intel vPro Fleet Services pour la gestion ? distance au niveau mat?riel</small></li>
+                    <div class="subsection">
+                        <h4><span class="icon">?</span>Probl?mes Connus</h4>
+                        <ul>
+                            <li><strong>Probl?me d'espace disque sur les appareils Windows Intune</strong><span class="badge critique">Critique</span><br>
+                            <small>Une mise ? jour r?cente de l'application Intune Store a introduit un probl?me de journalisation excessive causant un manque d'espace disque</small><br>
+                            <small><strong>Solution:</strong> Supprimer le contenu du dossier %windir%\Temp\WinGet\defaultState et red?marrer l'appareil</small></li>
+                            
+                            <li><strong>Crash de l'agent de gestion Intune v1.95.103.0</strong><span class="badge critique">Critique</span><br>
+                            <small>Crashes r?p?t?s de Microsoft.Management.Services.IntuneWindowsAgent.exe apr?s la mise ? jour vers la version 1.95.103.0</small></li>
+                            
+                            <li><strong>D?ploiement d'applications lent</strong><span class="badge important">Important</span><br>
+                            <small>Les utilisateurs signalent des d?ploiements d'applications lents, particuli?rement en Europe (Allemagne, Su?de, Norv?ge, Danemark)</small></li>
+                        </ul>
+                    </div>
                     
-                    <li><strong>Nouveau Copilot dans Intune</strong><span class="badge important">Important</span><br>
-                    <small>Microsoft Copilot disponible dans le centre d'administration Intune avec acc?s facilit? au chat et conversations contextuelles</small></li>
-                    
-                    <li><strong>Support PowerShell pour Win32 apps</strong><span class="badge info">Info</span><br>
-                    <small>Possibilit? d'uploader un script PowerShell pour installer les applications Enterprise App Catalog comme alternative ? la ligne de commande</small></li>
-                </ul>
-            </div>
-
-            <div class="section">
-                <h4>? Probl?mes Connus</h4>
-                <ul>
-                    <li><strong>Probl?me d'espace disque sur les appareils Windows Intune</strong><span class="badge critique">Critique</span><br>
-                    <small>Une mise ? jour r?cente de l'application Intune Store a introduit un probl?me de journalisation excessive causant un manque d'espace disque</small><br>
-                    <small><strong>Solution:</strong> Supprimer le contenu du dossier %windir%\Temp\WinGet\defaultState et red?marrer l'appareil</small></li>
-                    
-                    <li><strong>Crash de l'agent de gestion Intune v1.95.103.0</strong><span class="badge critique">Critique</span><br>
-                    <small>Crashes r?p?t?s de Microsoft.Management.Services.IntuneWindowsAgent.exe apr?s la mise ? jour vers la version 1.95.103.0</small></li>
-                    
-                    <li><strong>D?ploiement d'applications lent</strong><span class="badge important">Important</span><br>
-                    <small>Les utilisateurs signalent des d?ploiements d'applications lents, particuli?rement en Europe (Allemagne, Su?de, Norv?ge, Danemark)</small></li>
-                </ul>
-            </div>
-
-            <div class="section">
-                <h4>?? Changements Majeurs</h4>
-                <ul>
-                    <li><strong>Fin de support Windows 10 en octobre 2025</strong><span class="badge critique">Critique</span><br>
-                    <small>Apr?s le 14 octobre 2025, Windows 10 devient une version 'autoris?e' dans Intune mais la fonctionnalit? n'est plus garantie</small></li>
-                    
-                    <li><strong>Support iOS/iPadOS 17.x minimum</strong><span class="badge info">Info</span><br>
-                    <small>Intune supporte maintenant iOS/iPadOS 17.x comme version minimum</small></li>
-                    
-                    <li><strong>Support macOS 14.x minimum</strong><span class="badge info">Info</span><br>
-                    <small>Intune supporte maintenant macOS 14.x comme version minimum</small></li>
-                </ul>
-            </div>
-
-            <h2>? Microsoft Teams</h2>
+                    <div class="subsection">
+                        <h4><span class="icon">??</span>Changements Majeurs</h4>
+                        <ul>
+                            <li><strong>Fin de support Windows 10 en octobre 2025</strong><span class="badge critique">Critique</span><br>
+                            <small>Apr?s le 14 octobre 2025, Windows 10 devient une version 'autoris?e' dans Intune mais la fonctionnalit? n'est plus garantie</small></li>
+                            
+                            <li><strong>Support iOS/iPadOS 17.x minimum</strong><span class="badge info">Info</span><br>
+                            <small>Intune supporte maintenant iOS/iPadOS 17.x comme version minimum</small></li>
+                            
+                            <li><strong>Support macOS 14.x minimum</strong><span class="badge info">Info</span><br>
+                            <small>Intune supporte maintenant macOS 14.x comme version minimum</small></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
             
-            <div class="section">
-                <h4>? Nouveaut?s</h4>
-                <ul>
-                    <li><strong>9 nouvelles mises ? jour Teams 2025</strong><span class="badge important">Important</span><br>
-                    <small>Nouvelles fonctionnalit?s incluant le calendrier Teams am?lior?, timer de r?union, indicateur visuel micro et panneau de contr?le repens?</small></li>
+            <section id="teams" class="section">
+                <div class="section-header">? Microsoft Teams</div>
+                <div class="section-content">
+                    <div class="subsection">
+                        <h4><span class="icon">?</span>Nouveaut?s</h4>
+                        <ul>
+                            <li><strong>9 nouvelles mises ? jour Teams 2025</strong><span class="badge important">Important</span><br>
+                            <small>Nouvelles fonctionnalit?s incluant le calendrier Teams am?lior?, timer de r?union, indicateur visuel micro et panneau de contr?le repens?</small></li>
+                            
+                            <li><strong>Agents IA dans Teams</strong><span class="badge important">Important</span><br>
+                            <small>Teams int?gre de nouveaux agents IA, notamment Facilitator pour les r?unions et agents sp?cifiques aux canaux</small></li>
+                            
+                            <li><strong>Chat Copilot unifi? dans Teams</strong><span class="badge important">Important</span><br>
+                            <small>Exp?rience Copilot am?lior?e avec chat unifi?, disponible pour les utilisateurs avec licence M365</small></li>
+                            
+                            <li><strong>Copilot Chat gratuit dans les applications Office</strong><span class="badge info">Info</span><br>
+                            <small>Microsoft int?gre le chat Copilot gratuit dans Word, Excel, PowerPoint et Outlook</small></li>
+                        </ul>
+                    </div>
                     
-                    <li><strong>Agents IA dans Teams</strong><span class="badge important">Important</span><br>
-                    <small>Teams int?gre de nouveaux agents IA, notamment Facilitator pour les r?unions et agents sp?cifiques aux canaux</small></li>
+                    <div class="subsection">
+                        <h4><span class="icon">?</span>Probl?mes Connus</h4>
+                        <ul>
+                            <li><strong>Panne Microsoft 365 affectant Teams</strong><span class="badge critique">Critique</span><br>
+                            <small>Panne majeure Microsoft 365 le 8 octobre 2025 affectant Teams, Exchange Online et les portails d'administration</small><br>
+                            <small><strong>Solution:</strong> Microsoft a r?solu le probl?me en r??quilibrant le trafic vers l'infrastructure saine</small></li>
+                            
+                            <li><strong>Probl?mes d'authentification Teams</strong><span class="badge important">Important</span><br>
+                            <small>Les utilisateurs peuvent rencontrer des erreurs d'authentification et des probl?mes d'acc?s aux services</small><br>
+                            <small><strong>Statut:</strong> Probl?me r?solu par Microsoft</small></li>
+                        </ul>
+                    </div>
                     
-                    <li><strong>Chat Copilot unifi? dans Teams</strong><span class="badge important">Important</span><br>
-                    <small>Exp?rience Copilot am?lior?e avec chat unifi?, disponible pour les utilisateurs avec licence M365</small></li>
-                    
-                    <li><strong>Copilot Chat gratuit dans les applications Office</strong><span class="badge info">Info</span><br>
-                    <small>Microsoft int?gre le chat Copilot gratuit dans Word, Excel, PowerPoint et Outlook</small></li>
-                </ul>
-            </div>
-
-            <div class="section">
-                <h4>? Probl?mes Connus</h4>
-                <ul>
-                    <li><strong>Panne Microsoft 365 affectant Teams</strong><span class="badge critique">Critique</span><br>
-                    <small>Panne majeure Microsoft 365 le 8 octobre 2025 affectant Teams, Exchange Online et les portails d'administration</small><br>
-                    <small><strong>Solution:</strong> Microsoft a r?solu le probl?me en r??quilibrant le trafic vers l'infrastructure saine</small></li>
-                    
-                    <li><strong>Probl?mes d'authentification Teams</strong><span class="badge important">Important</span><br>
-                    <small>Les utilisateurs peuvent rencontrer des erreurs d'authentification et des probl?mes d'acc?s aux services</small><br>
-                    <small><strong>Statut:</strong> Probl?me r?solu par Microsoft</small></li>
-                </ul>
-            </div>
-
-            <div class="section">
-                <h4>?? Changements Majeurs</h4>
-                <ul>
-                    <li><strong>Fin de disponibilit? du client Teams classique</strong><span class="badge critique">Critique</span><br>
-                    <small>Le client Teams classique n'est plus disponible depuis le 1er juillet 2025. Fin de support depuis juillet 2024</small></li>
-                    
-                    <li><strong>Changements de prix et packaging Microsoft 365 et Teams</strong><span class="badge important">Important</span><br>
-                    <small>Changements globaux de prix et packaging suite ? l'accord avec la Commission Europ?enne, effectifs le 1er novembre 2025</small></li>
-                </ul>
-            </div>
-
-            <h2>? Microsoft Entra ID</h2>
+                    <div class="subsection">
+                        <h4><span class="icon">??</span>Changements Majeurs</h4>
+                        <ul>
+                            <li><strong>Fin de disponibilit? du client Teams classique</strong><span class="badge critique">Critique</span><br>
+                            <small>Le client Teams classique n'est plus disponible depuis le 1er juillet 2025. Fin de support depuis juillet 2024</small></li>
+                            
+                            <li><strong>Changements de prix et packaging Microsoft 365 et Teams</strong><span class="badge important">Important</span><br>
+                            <small>Changements globaux de prix et packaging suite ? l'accord avec la Commission Europ?enne, effectifs le 1er novembre 2025</small></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
             
-            <div class="section">
-                <h4>? Nouveaut?s</h4>
-                <ul>
-                    <li><strong>Synchronisation cross-tenant (cross-cloud) GA</strong><span class="badge important">Important</span><br>
-                    <small>La synchronisation cross-tenant entre clouds atteint la disponibilit? g?n?rale</small></li>
+            <section id="entra" class="section">
+                <div class="section-header">? Microsoft Entra ID</div>
+                <div class="section-content">
+                    <div class="subsection">
+                        <h4><span class="icon">?</span>Nouveaut?s</h4>
+                        <ul>
+                            <li><strong>Synchronisation cross-tenant (cross-cloud) GA</strong><span class="badge important">Important</span><br>
+                            <small>La synchronisation cross-tenant entre clouds atteint la disponibilit? g?n?rale</small></li>
+                            
+                            <li><strong>Abonnement Entra ID gratuit</strong><span class="badge important">Important</span><br>
+                            <small>Microsoft d?ploie un nouvel abonnement Entra ID gratuit pour aider les organisations ? suivre la propri?t? des tenants</small></li>
+                            
+                            <li><strong>Agent Access Review en pr?version</strong><span class="badge info">Info</span><br>
+                            <small>Nouvel agent Access Review pour une gouvernance plus intelligente en pr?version publique</small></li>
+                        </ul>
+                    </div>
                     
-                    <li><strong>Abonnement Entra ID gratuit</strong><span class="badge important">Important</span><br>
-                    <small>Microsoft d?ploie un nouvel abonnement Entra ID gratuit pour aider les organisations ? suivre la propri?t? des tenants</small></li>
-                    
-                    <li><strong>Agent Access Review en pr?version</strong><span class="badge info">Info</span><br>
-                    <small>Nouvel agent Access Review pour une gouvernance plus intelligente en pr?version publique</small></li>
-                </ul>
-            </div>
-
-            <div class="section">
-                <h4>?? Changements Majeurs</h4>
-                <ul>
-                    <li><strong>MFA obligatoire pour Azure - Phase 2</strong><span class="badge critique">Critique</span><br>
-                    <small>? partir du 1er octobre 2025, application progressive de l'authentification multifacteur pour Azure CLI, PowerShell, mobile app et outils IaC</small></li>
-                    
-                    <li><strong>Abandon des politiques MFA et SSPR h?rit?es</strong><span class="badge important">Important</span><br>
-                    <small>? partir du 1er octobre 2025, Microsoft abandonne le support des m?thodes d'authentification dans les anciennes politiques MFA et SSPR</small></li>
-                </ul>
-            </div>
-
-            <h2>? Microsoft Exchange</h2>
+                    <div class="subsection">
+                        <h4><span class="icon">??</span>Changements Majeurs</h4>
+                        <ul>
+                            <li><strong>MFA obligatoire pour Azure - Phase 2</strong><span class="badge critique">Critique</span><br>
+                            <small>? partir du 1er octobre 2025, application progressive de l'authentification multifacteur pour Azure CLI, PowerShell, mobile app et outils IaC</small></li>
+                            
+                            <li><strong>Abandon des politiques MFA et SSPR h?rit?es</strong><span class="badge important">Important</span><br>
+                            <small>? partir du 1er octobre 2025, Microsoft abandonne le support des m?thodes d'authentification dans les anciennes politiques MFA et SSPR</small></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
             
-            <div class="section">
-                <h4>? Nouveaut?s</h4>
-                <ul>
-                    <li><strong>Auto-archivage Exchange Online par d?faut</strong><span class="badge important">Important</span><br>
-                    <small>Microsoft active l'auto-archivage bas? sur des seuils par d?faut dans Exchange Online pour ?viter les probl?mes de flux de messagerie</small></li>
+            <section id="exchange" class="section">
+                <div class="section-header">? Microsoft Exchange</div>
+                <div class="section-content">
+                    <div class="subsection">
+                        <h4><span class="icon">?</span>Nouveaut?s</h4>
+                        <ul>
+                            <li><strong>Auto-archivage Exchange Online par d?faut</strong><span class="badge important">Important</span><br>
+                            <small>Microsoft active l'auto-archivage bas? sur des seuils par d?faut dans Exchange Online pour ?viter les probl?mes de flux de messagerie</small></li>
+                            
+                            <li><strong>Exchange Server Subscription Edition disponible</strong><span class="badge important">Important</span><br>
+                            <small>Exchange Server SE maintenant disponible pour tous les clients comme successeur ? Exchange 2016/2019</small></li>
+                        </ul>
+                    </div>
                     
-                    <li><strong>Exchange Server Subscription Edition disponible</strong><span class="badge important">Important</span><br>
-                    <small>Exchange Server SE maintenant disponible pour tous les clients comme successeur ? Exchange 2016/2019</small></li>
-                </ul>
-            </div>
-
-            <div class="section">
-                <h4>?? Changements Majeurs</h4>
-                <ul>
-                    <li><strong>Fin de support Exchange Server 2016/2019</strong><span class="badge critique">Critique</span><br>
-                    <small>Toutes les versions existantes d'Exchange Server atteignent la fin de support en octobre 2025</small></li>
-                    
-                    <li><strong>Limitation emails domaine MOERA</strong><span class="badge important">Important</span><br>
-                    <small>Exchange Online limite les emails sortants depuis les domaines onmicrosoft.com par d?faut ? 100 messages maximum par jour</small></li>
-                </ul>
-            </div>
-
-            <h2>?? Microsoft Defender</h2>
+                    <div class="subsection">
+                        <h4><span class="icon">??</span>Changements Majeurs</h4>
+                        <ul>
+                            <li><strong>Fin de support Exchange Server 2016/2019</strong><span class="badge critique">Critique</span><br>
+                            <small>Toutes les versions existantes d'Exchange Server atteignent la fin de support en octobre 2025</small></li>
+                            
+                            <li><strong>Limitation emails domaine MOERA</strong><span class="badge important">Important</span><br>
+                            <small>Exchange Online limite les emails sortants depuis les domaines onmicrosoft.com par d?faut ? 100 messages maximum par jour</small></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
             
-            <div class="section">
-                <h4>? Nouveaut?s</h4>
-                <ul>
-                    <li><strong>Protection en temps r?el des agents IA</strong><span class="badge important">Important</span><br>
-                    <small>D?fense en temps r?el pour les agents Copilot Studio contre les attaques d'injection de prompt</small></li>
+            <section id="defender" class="section">
+                <div class="section-header">?? Microsoft Defender</div>
+                <div class="section-content">
+                    <div class="subsection">
+                        <h4><span class="icon">?</span>Nouveaut?s</h4>
+                        <ul>
+                            <li><strong>Protection en temps r?el des agents IA</strong><span class="badge important">Important</span><br>
+                            <small>D?fense en temps r?el pour les agents Copilot Studio contre les attaques d'injection de prompt</small></li>
+                            
+                            <li><strong>Protection OAuth Salesforce</strong><span class="badge important">Important</span><br>
+                            <small>Defender prot?ge Salesforce contre les campagnes d'attaque OAuth</small></li>
+                            
+                            <li><strong>Protection URL en temps quasi-r?el pour Teams</strong><span class="badge important">Important</span><br>
+                            <small>Les liens malveillants dans Teams sont signal?s avant/apr?s livraison</small></li>
+                        </ul>
+                    </div>
                     
-                    <li><strong>Protection OAuth Salesforce</strong><span class="badge important">Important</span><br>
-                    <small>Defender prot?ge Salesforce contre les campagnes d'attaque OAuth</small></li>
+                    <div class="subsection">
+                        <h4><span class="icon">?</span>Probl?mes Connus</h4>
+                        <ul>
+                            <li><strong>Defender marque incorrectement SQL Server comme fin de vie</strong><span class="badge important">Important</span><br>
+                            <small>Microsoft Defender for Endpoint marque incorrectement SQL Server 2017 et 2019 comme ayant atteint leur fin de vie</small><br>
+                            <small><strong>Statut:</strong> Microsoft d?ploie un correctif pour inverser le changement de code probl?matique</small></li>
+                            
+                            <li><strong>Faux positifs BIOS sur appareils Dell</strong><span class="badge important">Important</span><br>
+                            <small>Bug de logique causant l'affichage d'alertes incorrectes de firmware BIOS obsol?te sur les appareils Dell</small><br>
+                            <small><strong>Statut:</strong> Correctif pr?t mais pas encore d?ploy?</small></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="sharepoint" class="section">
+                <div class="section-header">? Microsoft SharePoint</div>
+                <div class="section-content">
+                    <div class="subsection">
+                        <h4><span class="icon">?</span>Nouveaut?s</h4>
+                        <ul>
+                            <li><strong>SharePoint Premium avec IA g?n?rative</strong><span class="badge important">Important</span><br>
+                            <small>Nouvelles capacit?s d'IA g?n?rative pour la cr?ation de contenu et l'automatisation des workflows</small></li>
+                            
+                            <li><strong>SharePoint Server Subscription Edition</strong><span class="badge important">Important</span><br>
+                            <small>Nouvelle ?dition par abonnement pour les d?ploiements on-premises avec mises ? jour continues</small></li>
+                        </ul>
+                    </div>
                     
-                    <li><strong>Protection URL en temps quasi-r?el pour Teams</strong><span class="badge important">Important</span><br>
-                    <small>Les liens malveillants dans Teams sont signal?s avant/apr?s livraison</small></li>
-                </ul>
-            </div>
-
-            <div class="section">
-                <h4>? Probl?mes Connus</h4>
-                <ul>
-                    <li><strong>Defender marque incorrectement SQL Server comme fin de vie</strong><span class="badge important">Important</span><br>
-                    <small>Microsoft Defender for Endpoint marque incorrectement SQL Server 2017 et 2019 comme ayant atteint leur fin de vie</small><br>
-                    <small><strong>Statut:</strong> Microsoft d?ploie un correctif pour inverser le changement de code probl?matique</small></li>
+                    <div class="subsection">
+                        <h4><span class="icon">?</span>Probl?mes Connus</h4>
+                        <ul>
+                            <li><strong>Probl?mes de synchronisation OneDrive pour Entreprise</strong><span class="badge important">Important</span><br>
+                            <small>Difficult?s de synchronisation entre SharePoint et OneDrive affectant les biblioth?ques partag?es</small><br>
+                            <small><strong>Statut:</strong> Microsoft travaille sur une r?solution</small></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="onedrive" class="section">
+                <div class="section-header">?? Microsoft OneDrive</div>
+                <div class="section-content">
+                    <div class="subsection">
+                        <h4><span class="icon">?</span>Nouveaut?s</h4>
+                        <ul>
+                            <li><strong>OneDrive Copilot int?gr?</strong><span class="badge important">Important</span><br>
+                            <small>Copilot maintenant disponible directement dans OneDrive pour l'organisation intelligente des fichiers et la recherche s?mantique</small></li>
+                            
+                            <li><strong>Sauvegarde automatique ?tendue</strong><span class="badge important">Important</span><br>
+                            <small>Nouvelle fonction de sauvegarde automatique pour les dossiers syst?me Windows et les param?tres d'applications</small></li>
+                        </ul>
+                    </div>
                     
-                    <li><strong>Faux positifs BIOS sur appareils Dell</strong><span class="badge important">Important</span><br>
-                    <small>Bug de logique causant l'affichage d'alertes incorrectes de firmware BIOS obsol?te sur les appareils Dell</small><br>
-                    <small><strong>Statut:</strong> Correctif pr?t mais pas encore d?ploy?</small></li>
-                </ul>
-            </div>
-
-            <div class="actions">
+                    <div class="subsection">
+                        <h4><span class="icon">?</span>Probl?mes Connus</h4>
+                        <ul>
+                            <li><strong>Probl?me de synchronisation gros fichiers</strong><span class="badge important">Important</span><br>
+                            <small>Probl?me de synchronisation affectant les gros fichiers (>100MB) causant des timeouts et ?checs de transfert</small><br>
+                            <small><strong>Solution:</strong> Red?marrer le client OneDrive et utiliser l'upload web pour les gros fichiers temporairement</small></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4><span class="icon">??</span>Changements Majeurs</h4>
+                        <ul>
+                            <li><strong>Fin de support client OneDrive h?rit?</strong><span class="badge important">Important</span><br>
+                            <small>Les anciennes versions du client OneDrive (ant?rieures ? 2024) ne seront plus support?es ? partir du 1er janvier 2026</small></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="purview" class="section">
+                <div class="section-header">? Microsoft Purview</div>
+                <div class="section-content">
+                    <div class="subsection">
+                        <h4><span class="icon">?</span>Nouveaut?s</h4>
+                        <ul>
+                            <li><strong>Classification IA automatis?e</strong><span class="badge important">Important</span><br>
+                            <small>Nouvelle classification automatique bas?e sur l'IA pour identifier et prot?ger les donn?es sensibles ? grande ?chelle</small></li>
+                            
+                            <li><strong>Connecteurs de donn?es ?tendus</strong><span class="badge important">Important</span><br>
+                            <small>Support ?tendu pour Salesforce, ServiceNow et autres plateformes SaaS populaires</small></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4><span class="icon">??</span>Changements Majeurs</h4>
+                        <ul>
+                            <li><strong>Nouvelles r?glementations RGPD 2025</strong><span class="badge critique">Critique</span><br>
+                            <small>Mise ? jour des mod?les de conformit? pour les nouvelles exigences RGPD applicables en 2025</small></li>
+                            
+                            <li><strong>Migration des ?tiquettes de sensibilit?</strong><span class="badge important">Important</span><br>
+                            <small>Migration automatique des anciennes ?tiquettes Azure Information Protection vers Purview</small></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="actions" class="actions">
                 <h3>? Actions Recommand?es</h3>
                 <p>Plan d'action prioritaire bas? sur les ?l?ments critiques et importants identifi?s cette semaine.</p>
                 
-                <h4>Actions Critiques</h4>
-                <ul>
-                    <li>Planifier la migration Exchange Server avant octobre 2025</li>
-                    <li>Pr?parer la mise ? niveau Windows 10 vers Windows 11 avant octobre 2025</li>
-                    <li>V?rifier et corriger les probl?mes d'espace disque Intune Store</li>
-                    <li>Impl?menter MFA obligatoire pour Azure (Phase 2 octobre 2025)</li>
-                </ul>
+                <div class="action-category">
+                    <h4>Actions Critiques</h4>
+                    <ul>
+                        <li>Planifier la migration Exchange Server avant octobre 2025</li>
+                        <li>Pr?parer la mise ? niveau Windows 10 vers Windows 11 avant octobre 2025</li>
+                        <li>V?rifier et corriger les probl?mes d'espace disque Intune Store</li>
+                        <li>Impl?menter MFA obligatoire pour Azure (Phase 2 octobre 2025)</li>
+                        <li>R?soudre les probl?mes de synchronisation OneDrive pour les gros fichiers</li>
+                        <li>Pr?parer la conformit? aux nouvelles r?glementations RGPD 2025 via Purview</li>
+                    </ul>
+                </div>
                 
-                <h4>Actions Importantes</h4>
-                <ul>
-                    <li>Tester les nouvelles fonctionnalit?s Copilot dans Intune et Teams</li>
-                    <li>?valuer l'impact de l'auto-archivage Exchange Online</li>
-                    <li>Migrer vers les nouvelles politiques d'authentification Entra</li>
-                    <li>Surveiller les faux positifs Defender et attendre les correctifs</li>
-                </ul>
+                <div class="action-category">
+                    <h4>Actions Importantes</h4>
+                    <ul>
+                        <li>Tester les nouvelles fonctionnalit?s Copilot dans Intune, Teams et OneDrive</li>
+                        <li>?valuer l'impact de l'auto-archivage Exchange Online</li>
+                        <li>Migrer vers les nouvelles politiques d'authentification Entra</li>
+                        <li>Surveiller les faux positifs Defender et attendre les correctifs</li>
+                        <li>Planifier la migration vers SharePoint Server SE pour les d?ploiements on-premises</li>
+                        <li>Configurer la classification IA automatis?e dans Purview</li>
+                    </ul>
+                </div>
                 
-                <h4>Actions Informatives</h4>
-                <ul>
-                    <li>Explorer les nouveaux agents IA dans Teams</li>
-                    <li>Tester la synchronisation cross-tenant Entra</li>
-                    <li>?valuer les nouvelles fonctionnalit?s de protection Defender</li>
-                </ul>
+                <div class="action-category">
+                    <h4>Actions Informatives</h4>
+                    <ul>
+                        <li>Explorer les nouveaux agents IA dans Teams</li>
+                        <li>Tester la synchronisation cross-tenant Entra</li>
+                        <li>?valuer les nouvelles fonctionnalit?s de protection Defender</li>
+                        <li>Tester les nouvelles capacit?s d'IA g?n?rative dans SharePoint Premium</li>
+                        <li>Configurer la sauvegarde automatique ?tendue OneDrive</li>
+                        <li>Explorer les nouveaux connecteurs de donn?es Purview</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <div class="footer">
+                <p>? Rapport g?n?r? automatiquement par Perplexity AI<br>
+                ? Prochaine mise ? jour : vendredi prochain</p>
             </div>
-        </div>
-        
-        <div class="footer">
-            <p>? Rapport g?n?r? automatiquement par Perplexity AI<br>
-            ? Prochaine mise ? jour : vendredi prochain</p>
-        </div>
+        </main>
     </div>
 </body>
 </html>
