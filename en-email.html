@@ -1,72 +1,291 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Microsoft Watch ? Week of October 12, 2025</title>
-<style>
-  body{font-family:'Segoe UI',Arial,sans-serif;margin:0;padding:24px;color:#222;line-height:1.6;background:#fafafa}
-  .container{max-width:800px;margin:0 auto;background:white;padding:32px;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,0.1)}
-  h1{color:#0078d4;margin:0 0 24px;font-size:28px;text-align:center;border-bottom:3px solid #0078d4;padding-bottom:16px}
-  h2{color:#0078d4;margin:32px 0 16px;font-size:22px;border-bottom:2px solid #e1e1e1;padding-bottom:8px}
-  h3{color:#444;margin:24px 0 12px;font-size:18px}
-  h4{color:#666;margin:16px 0 8px;font-size:16px;font-weight:600}
-  .summary{background:#f0f8ff;padding:20px;border-left:4px solid #0078d4;margin:24px 0;border-radius:0 6px 6px 0}
-  .badge{display:inline-block;font-size:11px;padding:3px 8px;border-radius:12px;color:white;margin-left:8px;font-weight:600}
-  .critical{background:#d32f2f}.important{background:#ff9800}.info{background:#4caf50}.new{background:#9c27b0}
-  a{color:#0078d4;text-decoration:none}a:hover{text-decoration:underline;color:#106ebe}
-  ul{margin:0 0 16px;padding-left:24px}li{margin-bottom:8px}
-  .section{margin:24px 0;padding:16px;background:#f9f9f9;border-radius:6px}
-  .footer{margin-top:40px;text-align:center;font-size:12px;color:#888;border-top:1px solid #ddd;padding-top:16px}
-  .icon{margin-right:8px;font-size:16px}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microsoft Watch - Week of 12 October 2025</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #0078d4, #1890ff);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            margin: 0 0 15px 0;
+            font-size: 28px;
+            font-weight: 300;
+            letter-spacing: -0.5px;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        h2 {
+            color: #0078d4;
+            border-bottom: 2px solid #e1e5e9;
+            padding-bottom: 10px;
+            margin: 30px 0 20px 0;
+            font-size: 24px;
+            font-weight: 600;
+        }
+        
+        h3 {
+            color: #333;
+            margin: 25px 0 15px 0;
+            font-size: 20px;
+            font-weight: 500;
+        }
+        
+        h4 {
+            color: #555;
+            margin: 20px 0 10px 0;
+            font-size: 18px;
+            font-weight: 500;
+        }
+        
+        .summary {
+            background: linear-gradient(135deg, #e3f2fd, #f0f8ff);
+            border-left: 4px solid #0078d4;
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .summary h3 {
+            margin-top: 0;
+            color: #0078d4;
+        }
+        
+        ul {
+            margin: 15px 0;
+            padding-left: 25px;
+        }
+        
+        li {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-left: 10px;
+            color: white;
+        }
+        
+        .badge.critique { background: #d32f2f; }
+        .badge.important { background: #ff9800; }
+        .badge.info { background: #4caf50; }
+        .badge.nouveau { background: #9c27b0; }
+        
+        a {
+            color: #0078d4;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+        
+        a:hover {
+            border-bottom-color: #0078d4;
+        }
+        
+        .section {
+            margin: 25px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+        }
+        
+        .section h4 {
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .icon {
+            margin-right: 10px;
+            font-size: 18px;
+        }
+        
+        .actions {
+            background: linear-gradient(135deg, #fff3e0, #ffeaa7);
+            border-left: 4px solid #ff9800;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .footer {
+            background: #f8f9fa;
+            padding: 20px 30px;
+            text-align: center;
+            color: #6c757d;
+            font-size: 14px;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        small {
+            display: block;
+            margin-top: 5px;
+            color: #666;
+            font-style: italic;
+        }
+        
+        @media (max-width: 768px) {
+            body { padding: 10px; }
+            .content { padding: 20px; }
+            .header { padding: 20px; }
+            .header h1 { font-size: 24px; }
+        }
+    </style>
 </head>
 <body>
-<div class="container">
-  <h1>? Microsoft Watch ? Week of October 12, 2025</h1>
-  
-  <div class="summary">
-    <h3 style="margin-top:0">? Executive Summary</h3>
-    <ul>
-      <li><strong>Intune 2025</strong>: AI-powered policy generation and Cloud PC optimization features deployment</li>
-      <li><strong>Windows 10</strong>: Official end of support October 14, 2025, transitioning to "allowed version" status in Intune</li>
-      <li><strong>Teams</strong>: New collaborative capabilities with shared notes and device selection on iPad</li>
-      <li><strong>Security</strong>: Intune network migration to Azure Front Door planned for December 2025</li>
-      <li><strong>Mobile</strong>: End of support for Company Portal Android versions < 5.0.5421.0</li>
-    </ul>
-  </div>
+    <div class="container">
+        <div class="header">
+            <h1>? Microsoft Watch</h1>
+            <p>Week of 12 October 2025</p>
+        </div>
+        
+        <div class="content">
+            <div class="summary">
+                <h3>? Executive Summary</h3>
+                <p>This week marks critical changes dans l'?cosyst?me Microsoft avec plusieurs fins de support importantes et de nouvelles fonctionnalit?s IA. Les administrateurs doivent porter une attention particuli?re aux ?ch?ances d'octobre 2025.</p>
+                
+                <h4>Points Criticals de la Semaine</h4>
+                <ul>
+                    <li><strong>Fins de Support Octobre 2025</strong><span class="badge critique">Critical</span><br>Windows 10 et Exchange Server 2016/2019 atteignent leur fin de support le 14 octobre 2025. Actions imm?diates requises.</li>
+                    <li><strong>MFA Obligatoire Azure - Phase 2</strong><span class="badge critique">Critical</span><br>Application progressive de l'authentification multifacteur pour Azure CLI, PowerShell et outils IaC ? partir du 1er octobre.</li>
+                    <li><strong>Probl?mes d'Espace Disque Intune</strong><span class="badge critique">Critical</span><br>Journalisation excessive de l'application Intune Store causant des probl?mes d'espace disque sur les appareils Windows.</li>
+                </ul>
+                
+                <h4>Principales Newt?s</h4>
+                <ul>
+                    <li><strong>Intelligence Artificielle Int?gr?e</strong><span class="badge important">Important</span><br>D?ploiement de Copilot dans Intune, Teams et nouveaux agents IA pour automatiser les t?ches administratives.</li>
+                    <li><strong>Protection Temps R?el Defender</strong><span class="badge important">Important</span><br>Nouvelle protection en temps r?el pour les agents IA contre les attaques d'injection de prompt.</li>
+                    <li><strong>Auto-archivage Exchange Online</strong><span class="badge info">Info</span><br>Activation par d?faut de l'auto-archivage bas? sur des seuils pour ?viter les probl?mes de flux de messagerie.</li>
+                </ul>
+            </div>
 
-  <h2>?? Microsoft Intune</h2>
-  
-  <div class="section">
-    <h4><span class="icon">?</span>New Features</h4>
-    <ul>
-      <li><a href="https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/whats-new" target="_blank">AI integration for automated policy creation</a><span class="badge new">New</span></li>
-      <li><a href="https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/whats-new" target="_blank">PowerShell script support for Win32 applications</a><span class="badge info">Info</span></li>
-      <li><a href="https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/whats-new" target="_blank">Copilot integration with Cloud PC analysis</a><span class="badge important">Important</span></li>
-    </ul>
-  </div>
+            <h2>?? Microsoft Intune</h2>
+            
+            <div class="section">
+                <h4><span class="icon">?</span>Newt?s</h4>
+                <ul>
+                    <li><a href="https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/whats-new">Microsoft Intune 2025 - Nouvelles fonctionnalit?s IA</a><span class="badge important">Important</span><br>
+                    <small>Intune 2025 apporte des am?liorations dans 5 domaines cl?s : automation, intelligence, int?gration, s?curit? et exp?rience utilisateur avec des suggestions de politiques bas?es sur l'IA</small></li>
+                    
+                    <li><a href="https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/in-development">Int?gration Intel vPro Fleet Services</a><span class="badge important">Important</span><br>
+                    <small>Intune int?gre maintenant Intel vPro Fleet Services pour la gestion ? distance au niveau mat?riel</small></li>
+                    
+                    <li><a href="https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/whats-new">New Copilot dans Intune</a><span class="badge important">Important</span><br>
+                    <small>Microsoft Copilot disponible dans le centre d'administration Intune avec acc?s facilit? au chat et conversations contextuelles</small></li>
+                    
+                    <li><a href="https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/whats-new">Support PowerShell pour Win32 apps</a><span class="badge info">Info</span><br>
+                    <small>Possibilit? d'uploader un script PowerShell pour installer les applications Enterprise App Catalog comme alternative ? la ligne de commande</small></li>
+                </ul>
+            </div>
 
-  <div class="section">
-    <h4><span class="icon">?</span>Critical Issues</h4>
-    <ul>
-      <li><a href="https://www.reddit.com/r/sysadmin/comments/1o2vhwv/microsoft_intune_network_change_december_2025/" target="_blank">Azure Front Door network migration (December 2025)</a><span class="badge critical">Critical</span><br>
-      <small><strong>Action required:</strong> Update firewall rules with new Azure Front Door IP addresses before December 2025</small></li>
-    </ul>
-  </div>
+            <div class="section">
+                <h4><span class="icon">?</span>Probl?mes Connus</h4>
+                <ul>
+                    <li><a href="https://support.nhs.net/2025/10/advisory-potential-disk-space-issue-on-windows-intune-devices/">Probl?me d'espace disque sur les appareils Windows Intune</a><span class="badge critique">Critical</span><br>
+                    <small>Une mise ? jour r?cente de l'application Intune Store a introduit un probl?me de journalisation excessive causant un manque d'espace disque</small><br>
+                    <small><strong>Solution:</strong> Supprimer le contenu du dossier %windir%\Temp\WinGet\defaultState et red?marrer l'appareil</small></li>
+                    
+                    <li>Crash de l'agent de gestion Intune v1.95.103.0<span class="badge critique">Critical</span><br>
+                    <small>Crashes r?p?t?s de Microsoft.Management.Services.IntuneWindowsAgent.exe apr?s la mise ? jour vers la version 1.95.103.0</small></li>
+                    
+                    <li>D?ploiement d'applications lent<span class="badge important">Important</span><br>
+                    <small>Les utilisateurs signalent des d?ploiements d'applications lents, particuli?rement en Europe (Allemagne, Su?de, Norv?ge, Danemark)</small></li>
+                </ul>
+            </div>
 
-  <div class="section">
-    <h4><span class="icon">??</span>Important Changes</h4>
-    <ul>
-      <li><a href="https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/whats-new" target="_blank">Windows 10: mainstream support ends (October 14, 2025)</a><span class="badge critical">Critical</span></li>
-      <li><a href="https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/whats-new" target="_blank">Company Portal Android < 5.0.5421.0 unsupported</a><span class="badge important">Important</span></li>
-    </ul>
-  </div>
+            <div class="section">
+                <h4><span class="icon">??</span>Changements Majeurs</h4>
+                <ul>
+                    <li><a href="https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/whats-new">Fin de support Windows 10 en octobre 2025</a><span class="badge critique">Critical</span><br>
+                    <small>Apr?s le 14 octobre 2025, Windows 10 devient une version 'autoris?e' dans Intune mais la fonctionnalit? n'est plus garantie</small></li>
+                    
+                    <li>Support iOS/iPadOS 17.x minimum<span class="badge info">Info</span><br>
+                    <small>Intune supporte maintenant iOS/iPadOS 17.x comme version minimum</small></li>
+                    
+                    <li>Support macOS 14.x minimum<span class="badge info">Info</span><br>
+                    <small>Intune supporte maintenant macOS 14.x comme version minimum</small></li>
+                </ul>
+            </div>
 
-  <div class="footer">
-    <p>? Report automatically generated by Perplexity AI<br>
-    ? Next update: next Friday</p>
-  </div>
-</div>
+            <h2>? Microsoft Teams</h2>
+            
+            <div class="section">
+                <h4><span class="icon">?</span>Newt?s</h4>
+                <ul>
+                    <li>9 nouvelles mises ? jour Teams 2025<span class="badge important">Important</span><br>
+                    <small>Nouvelles fonctionnalit?s incluant le calendrier Teams am?lior?, timer de r?union, indicateur visuel micro et panneau de contr?le repens?</small></li>
+                    
+                    <li>Agents IA dans Teams<span class="badge important">Important</span><br>
+                    <small>Teams int?gre de nouveaux agents IA, notamment Facilitator pour les r?unions et agents sp?cifiques aux canaux</small></li>
+                    
+                    <li>Chat Copilot unifi? dans Teams<span class="badge important">Important</span><br>
+                    <small>Exp?rience Copilot am?lior?e avec chat unifi?, disponible pour les utilisateurs avec licence M365</small></li>
+                    
+                    <li>Copilot Chat gratuit dans les applications Office<span class="badge info">Info</span><br>
+                    <small>Microsoft int?gre le chat Copilot gratuit dans Word, Excel, PowerPoint et Outlook</small></li>
+                </ul>
+            </div>
+
+            <div class="actions">
+                <h3>? Recommended Actions</h3>
+                <p>Priority action plan bas? sur les ?l?ments critiques et importants identifi?s cette semaine.</p>
+                
+                <h4>Actions Criticals</h4>
+                <ul>
+                    <li>Planifier la migration Exchange Server avant octobre 2025</li>
+                    <li>Pr?parer la mise ? niveau Windows 10 vers Windows 11 avant octobre 2025</li>
+                    <li>V?rifier et corriger les probl?mes d'espace disque Intune Store</li>
+                    <li>Impl?menter MFA obligatoire pour Azure (Phase 2 octobre 2025)</li>
+                </ul>
+                
+                <h4>Important Actions</h4>
+                <ul>
+                    <li>Tester les nouvelles fonctionnalit?s Copilot dans Intune et Teams</li>
+                    <li>?valuer l'impact de l'auto-archivage Exchange Online</li>
+                    <li>Migrer vers les nouvelles politiques d'authentification Entra</li>
+                    <li>Surveiller les faux positifs Defender et attendre les correctifs</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>? Report automatically generated par Perplexity AI<br>
+            ? Next update : next Friday</p>
+        </div>
+    </div>
 </body>
 </html>
