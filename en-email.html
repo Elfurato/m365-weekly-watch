@@ -1,14 +1,72 @@
-<h2 style="color:#0078d4;margin:0 0 16px;font-size:20px">Microsoft Watch ? Week of October 12, 2025</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Microsoft Watch ? Week of October 12, 2025</title>
+<style>
+  body{font-family:'Segoe UI',Arial,sans-serif;margin:0;padding:24px;color:#222;line-height:1.6;background:#fafafa}
+  .container{max-width:800px;margin:0 auto;background:white;padding:32px;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,0.1)}
+  h1{color:#0078d4;margin:0 0 24px;font-size:28px;text-align:center;border-bottom:3px solid #0078d4;padding-bottom:16px}
+  h2{color:#0078d4;margin:32px 0 16px;font-size:22px;border-bottom:2px solid #e1e1e1;padding-bottom:8px}
+  h3{color:#444;margin:24px 0 12px;font-size:18px}
+  h4{color:#666;margin:16px 0 8px;font-size:16px;font-weight:600}
+  .summary{background:#f0f8ff;padding:20px;border-left:4px solid #0078d4;margin:24px 0;border-radius:0 6px 6px 0}
+  .badge{display:inline-block;font-size:11px;padding:3px 8px;border-radius:12px;color:white;margin-left:8px;font-weight:600}
+  .critical{background:#d32f2f}.important{background:#ff9800}.info{background:#4caf50}.new{background:#9c27b0}
+  a{color:#0078d4;text-decoration:none}a:hover{text-decoration:underline;color:#106ebe}
+  ul{margin:0 0 16px;padding-left:24px}li{margin-bottom:8px}
+  .section{margin:24px 0;padding:16px;background:#f9f9f9;border-radius:6px}
+  .footer{margin-top:40px;text-align:center;font-size:12px;color:#888;border-top:1px solid #ddd;padding-top:16px}
+  .icon{margin-right:8px;font-size:16px}
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>? Microsoft Watch ? Week of October 12, 2025</h1>
+  
+  <div class="summary">
+    <h3 style="margin-top:0">? Executive Summary</h3>
+    <ul>
+      <li><strong>Intune 2025</strong>: AI-powered policy generation and Cloud PC optimization features deployment</li>
+      <li><strong>Windows 10</strong>: Official end of support October 14, 2025, transitioning to "allowed version" status in Intune</li>
+      <li><strong>Teams</strong>: New collaborative capabilities with shared notes and device selection on iPad</li>
+      <li><strong>Security</strong>: Intune network migration to Azure Front Door planned for December 2025</li>
+      <li><strong>Mobile</strong>: End of support for Company Portal Android versions < 5.0.5421.0</li>
+    </ul>
+  </div>
 
-<h3 style="color:#444;margin:16px 0 8px;font-size:16px">Executive Summary</h3>
-<ul style="margin:0 0 16px;padding-left:20px;line-height:1.5">
-<li><strong>Intune 2025</strong>: New AI features for automated policy generation</li>
-<li><strong>Windows 10</strong>: End of support October 14, 2025, becomes "allowed" version in Intune</li>
-<li><strong>PowerShell</strong>: Support for PowerShell scripts when installing Win32 apps</li>
-<li><strong>Intune Network</strong>: Migration to Azure Front Door planned for December 2025</li>
-</ul>
+  <h2>?? Microsoft Intune</h2>
+  
+  <div class="section">
+    <h4><span class="icon">?</span>New Features</h4>
+    <ul>
+      <li><a href="https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/whats-new" target="_blank">AI integration for automated policy creation</a><span class="badge new">New</span></li>
+      <li><a href="https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/whats-new" target="_blank">PowerShell script support for Win32 applications</a><span class="badge info">Info</span></li>
+      <li><a href="https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/whats-new" target="_blank">Copilot integration with Cloud PC analysis</a><span class="badge important">Important</span></li>
+    </ul>
+  </div>
 
-<h3 style="color:#0078d4;margin:20px 0 8px;font-size:18px;border-bottom:1px solid #e0e0e0;padding-bottom:4px">Intune</h3>
-<ul style="margin:0 0 12px;padding-left:20px">
-<li><a href="https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/whats-new" target="_blank" style="color:#0078d4">Windows 10 end of support (October 14, 2025)</a> <span style="background:#c23934;color:white;padding:2px 6px;font-size:11px;border-radius:3px">Critical</span></li>
-</ul>
+  <div class="section">
+    <h4><span class="icon">?</span>Critical Issues</h4>
+    <ul>
+      <li><a href="https://www.reddit.com/r/sysadmin/comments/1o2vhwv/microsoft_intune_network_change_december_2025/" target="_blank">Azure Front Door network migration (December 2025)</a><span class="badge critical">Critical</span><br>
+      <small><strong>Action required:</strong> Update firewall rules with new Azure Front Door IP addresses before December 2025</small></li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h4><span class="icon">??</span>Important Changes</h4>
+    <ul>
+      <li><a href="https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/whats-new" target="_blank">Windows 10: mainstream support ends (October 14, 2025)</a><span class="badge critical">Critical</span></li>
+      <li><a href="https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/whats-new" target="_blank">Company Portal Android < 5.0.5421.0 unsupported</a><span class="badge important">Important</span></li>
+    </ul>
+  </div>
+
+  <div class="footer">
+    <p>? Report automatically generated by Perplexity AI<br>
+    ? Next update: next Friday</p>
+  </div>
+</div>
+</body>
+</html>
